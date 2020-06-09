@@ -1,0 +1,12 @@
+idoso entra no site e seleciona a aba preciso de ajuda
+ao entrar na aba ele entra em uma tela com uma caixa de busca onde ele pode filtrar por cidade ou bairro
+ao filtrar aparecera uma listagem com:
+	- nome
+	- endereço
+	- telefone
+
+os ajudantes entram no site e selecionam a aba quero ajudar, ele é redirecionado para uma tela onde ele pode cadastrar seus dados como 
+	- nome
+	- endereco
+	- telefone
+Também havera uma opção para o cliente desativar seu cadastro

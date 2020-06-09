@@ -1,0 +1,9 @@
+{   
+    "name": "Boa Vizinhanca APP",
+    "description": "",
+    "autoload": {
+        "psr-4": {
+            "DB\\": "DB"
+        }
+    }
+}
