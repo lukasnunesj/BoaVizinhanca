@@ -47,47 +47,68 @@
         <main>
             <section class="jumbotron text-center">
                 <div class="container">
-                    <h1>Sua ajuda faz a diferença!</h1>
+                    <h1>Verifique seus dados!</h1>
                     <p class="lead text-muted">
-                        Preencha os dados e faça parte da vizinhança unida no combate ao COVID-19
+                        Verifique se seus dados estão corretos
                     </p>
                 </div>
                 <div class="container mt-3 text-left">
                     <div class="row justify-content-center">
                         <div class="col-8 ">
-                            <div id="alert-sucesso" class="alert alert-success alert-dismissible fade show" role="alert">
-                                <strong>Sucesso!</strong> Seu cadastro foi feito!
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div> 
-                            <div id="alert-erro" class="alert alert-danger alert-dismissible fade show" role="alert">
-                                <strong>Erro!</strong> Algo não saiu bem! Tente novamente mais tarde.
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div id="alert-senhas" class="alert alert-danger alert-dismissible fade show" role="alert">
-                                <strong>Erro!</strong> Senhas devem ser iguais.
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
                             <form class="needs-validation formulario" novalidate="">
-                                <input type="hidden" name="acao" value="cadastrar">
+                                <input type="hidden" name="acao" value="logar">
+                                <div id="alert-erro" class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    <strong>Erro!</strong> Senha ou email incorretos, por favor verifique e tente novamente.
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div id="alert-sucesso-exclusao" class="alert alert-success alert-dismissible fade show" role="alert">
+                                    <strong>Sucesso!</strong> Seu cadastro foi excluido.
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div id="alert-sucesso-alteracao" class="alert alert-success alert-dismissible fade show" role="alert">
+                                    <strong>Sucesso!</strong> Seu cadastro foi atualizado.
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
                                 <div class="row">
                                     <div class="col-md-6 mb-3">
+                                        <label for="email">Email</label>
+                                        <input type="email" class="form-control" name="email" id="email" placeholder="Digite seu Email" required>
+                                        <div class="invalid-feedback">
+                                            Email é obrigatório.
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="address">Senha</label>
+                                        <input type="password" class="form-control" name="senha" id="senha" placeholder="Digite sua senha" required="">
+                                        <div class="invalid-feedback">
+                                            A senha é obrigatória
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <button class="btn btn-primary btn-lg btn-block" type="button" onclick="entrar(event)">Buscar!</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="container"id="dados_formulario">
+                    <div class="row">
+                        <div class="col text-left">
+                            <form class="dados_formulario" novalidate="">
+                                <input type="hidden" name="acao" id="acao" value="atualizar">
+                                <input type="hidden" name="codigo" id="codigo">
+                                <div class="row">
+                                    <div class="col-md-12 mb-3">
                                         <label for="nome">Nome Completo</label>
                                         <input type="text" class="form-control" name="nome" id="nome" placeholder="Digite seu nome" value="" required="">
                                         <div class="invalid-feedback">
                                             Nome completo é obrigatório.
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 mb-3">
-                                        <label for="email">Email</label>
-                                        <input type="email" class="form-control" name="email" id="email" placeholder="voce@exemplo.com" required>
-                                        <div class="invalid-feedback">
-                                            Email é obrigatório.
                                         </div>
                                     </div>
                                 </div>
@@ -152,31 +173,15 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-6 mb-3">
-                                        <label for="address">Senha</label>
-                                        <input type="password" class="form-control" name="senha" id="senha" placeholder="Escolha uma senha" required="">
-                                        <div class="invalid-feedback">
-                                            A senha é obrigatória
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 mb-3">
-                                        <label for="confirmacao">Confirme a senha</label>
-                                        <input type="password" class="form-control" name="confirmacao" id="confirmacao" placeholder="Digite novamente sua senha" required="">
-                                        <div class="invalid-feedback">
-                                            A confirmação é obrigatória
-                                        </div>
-                                    </div>
-                                </div>
-
                                 <hr class="mb-4">
-                                <button class="btn btn-primary btn-lg btn-block" type="button" onclick="enviar(event)">Enviar!</button>
-                                <a href="entrar.html" class="btn btn-secondary btn-lg btn-block" >Já tenho cadastro!</a>
+                                <button class="btn btn-primary btn-lg btn-block" type="button" onclick="atualizar(event)">Alterar!</button>
+                                <button class="btn btn-danger btn-lg btn-block" type="button" onclick="excluir(event)">Excluir meu cadastro</button>
                             </form>
                         </div>
                     </div>
                 </div>
             </section>
+
         </main>
 
         <!-- Optional JavaScript -->
